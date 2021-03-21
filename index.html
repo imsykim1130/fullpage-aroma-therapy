@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">logo</div>
+        <div class="info">
+          <div class="cart">
+            <img src="./image/shopping.svg" alt="" />
+          </div>
+          <div class="user">
+            <img src="./image/user.svg" alt="" />
+          </div>
+        </div>
+      </header>
+
+      <nav>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Product</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <section id="main">
+        <h1 class="company-name">Aroma Therapy</h1>
+      </section>
+
+      <section id="about">
+        <div>
+          <img src="./image/potion.svg" alt="" />
+          <h2>Lorem ipsum dolor sit amet consectetur</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente
+            quos et fuga, impedit cumque aliquam obcaecati, qui illo nostrum
+            neque quod perferendis iusto vitae, laborum atque aut consequuntur
+            laboriosam? Cupiditate.
+          </p>
+        </div>
+      </section>
+
+      <section id="product">
+        <div class="left">
+          <h2>
+            4 <br />Different<br />
+            Oil
+          </h2>
+          <div class="arrow"></div>
+        </div>
+
+        <div class="mass-container">
+          <img
+            src="./image/rosemary-mass.svg"
+            alt=""
+            class="mass"
+            data-product-name="Rosemary"
+          />
+          <img
+            src="./image/green-mass.svg"
+            alt=""
+            class="mass"
+            data-product-name="Peppermint"
+          />
+          <img
+            src="./image/purple-mass.svg"
+            alt=""
+            class="mass"
+            data-product-name="Lavender"
+          />
+          <img
+            src="./image/yellow-mass.svg"
+            alt=""
+            class="mass"
+            data-product-name="Lemon"
+          />
+        </div>
+      </section>
+    </div>
+
+    <div class="pointer" productName=""></div>
+    <script>
+      const pointer = document.querySelector(".pointer");
+      const massContainer = document.querySelector(".mass-container");
+
+      addEventListener("mousemove", (e) => {
+        pointer.style.setProperty("--mouseX", e.clientX + "px");
+        pointer.style.setProperty("--mouseY", e.clientY + "px");
+      });
+
+      massContainer.addEventListener("mouseover", (e) => {
+        if (!e.target.children.length) {
+          console.log(e.target.dataset.productName);
+          pointer.setAttribute("productName", e.target.dataset.productName);
+        }
+
+        addEventListener("mousedown", () => {});
+      });
+
+      massContainer.addEventListener("mouseout", (e) => {
+        if (!e.target.children.length) {
+          pointer.setAttribute("productName", "");
+        }
+      });
+    </script>
+  </body>
+</html>
