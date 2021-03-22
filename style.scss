@@ -50,15 +50,19 @@ body {
   background-color: $light-gray;
 }
 
-.container {
+.fixed-container {
+  width: 100%;
   height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-section {
-  scroll-snap-align: start;
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
 }
 
 header {
@@ -70,6 +74,7 @@ header {
   top: 0;
   left: 0;
   color: var(--header-color);
+  z-index: 1000;
 
   .logo {
     font-family: $fontone;
@@ -108,6 +113,7 @@ nav {
   top: 50%;
   right: 0;
   transform: translateY(-50%);
+  z-index: 1000;
 
   ul {
     display: flex;
